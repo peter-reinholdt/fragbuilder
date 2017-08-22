@@ -587,8 +587,8 @@ class Peptide(object):
     def _calc_charge(self):
 
         charge = 0
-        for i in self._sequence:
-            charge += aa_dictionary[i].Charge
+        for residue in self._residues
+            charge += residue.Charge
         return charge
 
 
