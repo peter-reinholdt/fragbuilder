@@ -587,7 +587,7 @@ class Peptide(object):
     def _calc_charge(self):
 
         charge = 0
-        for residue in self._residues
+        for residue in self._residues:
             charge += residue.Charge
         return charge
 

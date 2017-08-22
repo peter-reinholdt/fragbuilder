@@ -3,7 +3,9 @@ import pybel
 import string
 import numpy
 
+
 fragbuild_dir = os.path.dirname(__file__) + "/"
+
 
 def ReadCoordzAwesome(Filename):
         ThisAwesomeMol = []
@@ -18,7 +20,6 @@ def ReadCoordzAwesome(Filename):
                         Element = [Type, Coords]
                         ThisAwesomeMol.append(Element)
         return ThisAwesomeMol
-
 
 
 class LeftMethylCap:
@@ -99,7 +100,6 @@ class RightChargedCap:
     def __init__(self):
         self.Mol = pybel.readfile("xyz", self.Filename).next()
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
-
 
 
 class Alanine:
@@ -196,6 +196,22 @@ class Aspartate:
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 
+class AspartateH:
+    #protonated aspartate
+    Charge      = 0
+    Index       = 30
+    Filename    = fragbuild_dir + "residues/ash.xyz"
+    ResName     = "0"
+    BB      = [1, 3, 6]
+    SC      = [[1,3,5,9],[3,5,9,11]]
+    Rotamer     = [[62, -10],
+              [62, 30],
+              [-177, 0],
+              [-177, 65]]
+    def __init__(self):
+        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.AwesomeMol = ReadCoordzAwesome(self.Filename)
+
 
 class Cysteine:
     Charge      = 0
@@ -208,6 +224,35 @@ class Cysteine:
     def __init__(self):
         self.Mol = pybel.readfile("xyz", self.Filename).next()
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
+
+
+class CysteineD:
+    #deprotonated cysteine
+    Charge      = -1
+    Index       = 31 
+    Filename    = fragbuild_dir + "residues/cyd.xyz"
+    ResName     = "1"
+    BB      = [1, 3, 6]
+    SC      = [[1,3,5,9]]
+    Rotamer     = [[62],[-177],[-65]]
+    def __init__(self):
+        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.AwesomeMol = ReadCoordzAwesome(self.Filename)
+
+
+class CysteineX:
+    #-S-S-CH3
+    Charge      = 0
+    Index       = 32
+    Filename    = fragbuild_dir + "residues/cyx.xyz"
+    ResName     = "2"
+    BB      = [1, 3, 6]
+    SC      = [[1,3,5,9]]
+    Rotamer     = [[62],[-177],[-65]]
+    def __init__(self):
+        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.AwesomeMol = ReadCoordzAwesome(self.Filename)
+
 
 class Glutamate:
     Charge      = -1
@@ -227,6 +272,28 @@ class Glutamate:
     def __init__(self):
         self.Mol = pybel.readfile("xyz", self.Filename).next()
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
+
+
+class GlutamateH:
+    #protonated glutamate
+    Charge      = 0
+    Index       = 33
+    Filename    = fragbuild_dir + "residues/glh.xyz"
+    ResName     = "3"
+    BB      = [1, 3, 6]
+    SC      = [[1,3,5,9],[3,5,9,13],[5,9,13,15]]
+    Rotamer     = [[62,  180, -20],
+              [70,   -80, 0],
+              [-177,  65, 10],
+              [-177, 180, 0],
+              [-80,  -50, -25],
+              [-65,   85, 0],
+              [-67,  180, -10],
+              [-65,  -65, -40]]
+    def __init__(self):
+        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.AwesomeMol = ReadCoordzAwesome(self.Filename)
+
 
 class Glutamine:
     Charge      = 0
@@ -248,6 +315,7 @@ class Glutamine:
         self.Mol = pybel.readfile("xyz", self.Filename).next()
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
+
 class Glycine:
     Charge      = 0
     Index       = 5
@@ -259,6 +327,7 @@ class Glycine:
     def __init__(self):
         self.Mol = pybel.readfile("xyz", self.Filename).next()
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
+
 
 class Histidine:
     Charge      = 1
@@ -278,6 +347,43 @@ class Histidine:
         self.Mol = pybel.readfile("xyz", self.Filename).next()
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
+
+class HistidineD:
+    Charge      = 0
+    Index       = 34
+    Filename    = fragbuild_dir + "residues/hid.xyz"
+    ResName     = "4"
+    BB      = [1, 3, 6]
+    SC      = [[1,3,5,9],[3,5,9,12]]
+    Rotamer     = [[62, -75],
+              [62, 80],
+              [-177, -165],
+              [-177, -80],
+              [-177, 60],
+              [-65, -70],
+              [-65, 165]]
+    def __init__(self):
+        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.AwesomeMol = ReadCoordzAwesome(self.Filename)
+
+
+class HistidineE:
+    Charge      = 0
+    Index       = 35
+    Filename    = fragbuild_dir + "residues/hie.xyz"
+    ResName     = "5"
+    BB      = [1, 3, 6]
+    SC      = [[1,3,5,9],[3,5,9,12]]
+    Rotamer     = [[62, -75],
+              [62, 80],
+              [-177, -165],
+              [-177, -80],
+              [-177, 60],
+              [-65, -70],
+              [-65, 165]]
+    def __init__(self):
+        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 class Isoleucine:
     Charge      = 0
@@ -314,6 +420,7 @@ class Leucine:
     def __init__(self):
         self.Mol = pybel.readfile("xyz", self.Filename).next()
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
+
 
 class Lysine:
     Charge      = 1
@@ -353,6 +460,48 @@ class Lysine:
         self.Mol = pybel.readfile("xyz", self.Filename).next()
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
+
+class LysineD:
+    #deprotonated lysine
+    Charge      = 0
+    Index       = 36
+    Filename    = fragbuild_dir + "residues/lyd.xyz"
+    ResName     = "6"
+    BB      = [1, 3, 6]
+    SC      = [[1,3,5,9],[3,5,9,13],[5,9,13,16],[9,13,16,19]]
+    Rotamer     = [[62, 180, 68, 180],
+              [62, 180, 180, 65],
+              [62, 180, 180, 180],
+              [62, 180, 180, -65],
+              [62, 180, -68, 180],
+              [-177, 68, 180, 65],
+              [-177, 68, 180, 180],
+              [68, -65, 9, 10],
+              [-177, 180, 68, 65],
+              [-177, 180, 68, 180],
+              [-177, 180, 180, 65],
+              [-177, 180, 180, 180],
+              [-177, 180, 180, -65],
+              [-177, 180, -68, 180],
+              [-177, 180, -68, -65],
+              [-90, 68, 180, 180],
+              [-67, 180, 68, 65],
+              [-67, 180, 68, 180],
+              [-67, 180, 180, 65],
+              [-67, 180, 180, 180],
+              [-67, 180, 180, -65],
+              [-67, 180, -68, 180],
+              [-67, 180, -68, -65],
+              [-62, -68, 180, 65],
+              [-62, -68, 180, 180],
+              [-62, -68, 180, -65],
+              [-62, -68, -68, 180]]
+    def __init__(self):
+        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.AwesomeMol = ReadCoordzAwesome(self.Filename)
+
+
+
 class Methionine:
     Charge      = 0
     Index       = 9
@@ -378,7 +527,6 @@ class Methionine:
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 
-
 class Phenylalanine:
     Charge      = 0
     Index       = 11
@@ -394,6 +542,7 @@ class Phenylalanine:
         self.Mol = pybel.readfile("xyz", self.Filename).next()
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
+
 class Proline:
     Charge      = 0
     Index       = 10
@@ -405,6 +554,7 @@ class Proline:
     def __init__(self):
         self.Mol = pybel.readfile("xyz", self.Filename).next()
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
+
 
 class Serine:
     Charge      = 0
@@ -420,6 +570,7 @@ class Serine:
         self.Mol = pybel.readfile("xyz", self.Filename).next()
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
+
 class Threonine:
     Charge      = 0
     Index       = 7
@@ -433,6 +584,7 @@ class Threonine:
     def __init__(self):
         self.Mol = pybel.readfile("xyz", self.Filename).next()
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
+
 
 class Tryptophan:
     Charge      = 0
@@ -452,6 +604,7 @@ class Tryptophan:
         self.Mol = pybel.readfile("xyz", self.Filename).next()
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
+
 class Tyrosine:
     Charge      = 0
     Index       = 12
@@ -466,6 +619,7 @@ class Tyrosine:
     def __init__(self):
         self.Mol = pybel.readfile("xyz", self.Filename).next()
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
+
 
 class Valine:
     Charge      = 0
@@ -484,7 +638,7 @@ class Valine:
 
 # Dictionary of amino acids and their constructors
 aa_dictionary = dict([('G', Glycine       ),
-              ('A', Alanine       ),
+                      ('A', Alanine       ),
                       ('S', Serine        ),
                       ('T', Threonine     ),
                       ('C', Cysteine      ),
@@ -502,6 +656,13 @@ aa_dictionary = dict([('G', Glycine       ),
                       ('Q', Glutamine     ),
                       ('H', Histidine     ),
                       ('K', Lysine        ),
-                      ('R', Arginine      )])
+                      ('R', Arginine      ),
+                      ('0', AspartateH    ),
+                      ('1', CysteineD     ),
+                      ('2', CysteineX     ),
+                      ('3', GlutamateH    ),
+                      ('4', HistidineD    ),
+                      ('5', HistidineE    ),
+                      ('6', LysineD       ),])
 
 

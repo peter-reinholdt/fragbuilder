@@ -39,9 +39,10 @@ bb_smiles = dict([('HN', "[$([H]N(C=O)C)]"     ),
                   ('CB', "[$([C]C(NC)C(=O))]"  )])
 
 
-aa1="ACDEFGHIKLMNPQRSTVWY"
+aa1="ACDEFGHIKLMNPQRSTVWY0123456"
 aa3=["ALA", "CYS", "ASP", "GLU", "PHE", "GLY", "HIS", "ILE", "LYS", "LEU",
-     "MET", "ASN", "PRO", "GLN", "ARG", "SER", "THR", "VAL", "TRP", "TYR"]
+     "MET", "ASN", "PRO", "GLN", "ARG", "SER", "THR", "VAL", "TRP", "TYR", 
+     "ASH", "CYD", "CYX", "GLH", "HID", "HIE", "LYD"]
 
 d1_to_index={}
 dindex_to_1={}
@@ -49,7 +50,7 @@ d3_to_index={}
 dindex_to_3={}
 d1_to_d3={}
 
-for i in range(0, 20):
+for i in range(len(aa1)):
     n1=aa1[i]
     n3=aa3[i]
     d1_to_index[n1]=i
