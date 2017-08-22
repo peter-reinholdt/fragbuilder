@@ -7,7 +7,7 @@ import basilisk_lib
 
 from residues import *
 from math_utils import *
-class Peptide:
+class Peptide(object):
     """ Usually instantiated from something like:
 
         my_peptide = frabuilder.peptide("DAAAK", nterm="methyl", cterm="methyl")
